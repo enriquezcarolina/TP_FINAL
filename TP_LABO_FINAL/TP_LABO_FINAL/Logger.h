@@ -5,6 +5,8 @@
 #include <string>
 using namespace std;
 
+#define NMAX 20
+
 class Logger : protected cLista<Log>
 {
 public:
@@ -13,9 +15,8 @@ public:
 	//Guardar_archivo xxxx.log
 	Logger(int Nmax = NMAX);
 	virtual ~Logger() {
-
 	}
-	
+
 	void Registrar(Log* log) {
 		AgregarItem(log);
 	}
@@ -29,4 +30,3 @@ public:
 	}
 
 };
-

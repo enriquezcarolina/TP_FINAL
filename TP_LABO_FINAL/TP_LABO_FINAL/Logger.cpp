@@ -1,6 +1,6 @@
 #include "Logger.h"
 
-Logger::Logger(int Nmax) :cLista<Log>(Nmax)
+Logger::Logger(int Nmax) :cListaT<Log>(Nmax)
 {
 	
 }

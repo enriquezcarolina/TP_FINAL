@@ -8,6 +8,6 @@ Log::Log(string descripcion, cPersona*p)
 
 string Log::to_string(){
 	string retornar = "";
-	retornar = persona->getNYA()+ " " + descripcion;
+	retornar = persona->get_NYA() + " " + descripcion;
 	return retornar;
 }

@@ -15,9 +15,9 @@ class Log
 	cPersona* persona;
 
 public:
-	Log(string descripcion, cPersona*);
+	Log(string descripcion, cPersona*p);
 	string to_string();
-	string getclave() {return persona;}
+	string getclave() {return persona->get_NYA();}
 	
 };
 

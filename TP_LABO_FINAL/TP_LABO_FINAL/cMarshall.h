@@ -16,3 +16,5 @@ public:
     void encerrar_prision(cPasajero*p);
 
 }
+
+

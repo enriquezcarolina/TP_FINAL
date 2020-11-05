@@ -6,11 +6,11 @@ using namespace std;
 class cPersona
 {
 protected:
-	string DNI;
+	const string DNI;
 	string NYA;
 
 public:
-	cPersona();
+	cPersona(string DNI, string NYA);
 	virtual ~cPersona();
 	string get_NYA(){return NYA;}
 };

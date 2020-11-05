@@ -9,7 +9,7 @@ using namespace std;
 class cAzafata: public cPersona
 {
 protected:
-
+    static int cantidad_azafatas;
 public:
 	cAzafata();
 	virtual ~cAzafata();

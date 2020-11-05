@@ -140,12 +140,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cAvion.cpp" />
+    <ClCompile Include="cCopiloto.cpp" />
+    <ClCompile Include="cEjecutivo.cpp" />
+    <ClCompile Include="cMarshall.cpp" />
     <ClCompile Include="cPersona.cpp" />
+    <ClCompile Include="cPrimera.cpp" />
+    <ClCompile Include="cTurista.cpp" />
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cAvion.h" />
+    <ClInclude Include="cAzafata.h" />
+    <ClInclude Include="cCopiloto.h" />
+    <ClInclude Include="cEjecutivo.h" />
+    <ClInclude Include="cMarshall.h" />
+    <ClInclude Include="cPasajero.h" />
     <ClInclude Include="cPersona.h" />
+    <ClInclude Include="cPiloto.h" />
+    <ClInclude Include="cPrimera.h" />
+    <ClInclude Include="cTurista.h" />
+    <ClInclude Include="Lista_Template.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="Logger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,3 +14,4 @@ public:
     void pedir_champagne(cAzafata* a);
 
 };
+

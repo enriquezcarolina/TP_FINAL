@@ -8,5 +8,10 @@ class cPersona
 protected:
 	string DNI;
 	string NYA;
+
+public:
+	cPersona();
+	virtual ~cPersona();
+	string get_NYA(){return NYA;}
 };
 

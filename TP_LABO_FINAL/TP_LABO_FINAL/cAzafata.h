@@ -6,7 +6,7 @@
 #include "cPiloto.h"
 using namespace std;
 
-class cAzafata:public cPersona
+class cAzafata: public cPersona
 {
 protected:
 

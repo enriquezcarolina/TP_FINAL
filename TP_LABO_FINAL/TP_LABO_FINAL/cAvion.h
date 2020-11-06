@@ -8,10 +8,8 @@ class cAvion
 {
 private:
     cListaT <cPersona> *pasajeros;
-    int cant_pasajeros;
-
-    int cant_eventos;
-    Logger registros;
+    cListaT<cPersona>* empleados;
+   static Logger registros;
 
 public:
   cAvion(cPersona* tripulantes, int cant);

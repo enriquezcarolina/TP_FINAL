@@ -5,6 +5,8 @@
 #include "cAzafata.h"
 using namespace std;
 
+enum eComida{POLLO, PESCADO, VEGGIE, SUSHI, CAVIAR};
+enum eBebida { AGUA, GASEOSA, VINO, CHAMPAGNE};
 class cPasajero:public cPersona
 {
 protected:

@@ -17,8 +17,10 @@ using namespace std;
 
 int main()
 {
-	// hacer una lista de personas
-	// cargar la mitad de los codigos a una lista de codigos habilitados
-	// comparar la lista de personas con la de codigos y ingresar al avion solo las personas que tienen el codigo en la lista
+	// lista de personas, pasajeros y tripulantes
+	// lista de strings para codigos
+	// cargar la mitad de los codigos de los pasajeros a una lista de codigos habilitados
+	// comparar la lista de personas con la de codigos y ingresar al avion solo las personas que tienen el codigo en la lista (con entrar_avion(cPersona* p)
+	
 	return 0;
 }

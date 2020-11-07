@@ -146,6 +146,7 @@
     <ClCompile Include="cMarshall.cpp" />
     <ClCompile Include="cPasajero.cpp" />
     <ClCompile Include="cPersona.cpp" />
+    <ClCompile Include="cPiloto.cpp" />
     <ClCompile Include="cPrimera.cpp" />
     <ClCompile Include="cTurista.cpp" />
     <ClCompile Include="Log.cpp" />

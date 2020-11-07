@@ -5,6 +5,14 @@ string cPiloto::to_string(){
     return cPersona::to_string() + "\nTipo: PILOTO";
 }
 
+cPiloto::cPiloto()
+{
+}
+
+cPiloto::~cPiloto()
+{
+}
+
 void cPiloto::anuncio_altavoz(){
     cAvion::registrar("realizo un anuncio por altavoz", this);
 }

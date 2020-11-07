@@ -7,6 +7,19 @@ cPersona::cPersona(string DNI, string NYA): DNI(DNI)
 
 }
 
+cPersona::cPersona()
+{
+}
+
+void cPersona::imprimir()
+{
+}
+
+string cPersona::getclave()
+{
+	return DNI;
+}
+
 cPersona::~cPersona()
 {
 }

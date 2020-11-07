@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include "cPersona.h"
-#include "cAzafata.h"
+class cAzafata;
 using namespace std;
 
 enum eComida{POLLO, PESCADO, VEGGIE, SUSHI, CAVIAR};
@@ -10,10 +10,11 @@ enum eBebida { AGUA, GASEOSA, VINO, CHAMPAGNE};
 class cPasajero:public cPersona
 {
 protected:
-	string Codigo;
+	string codigo;
 
 public:
-	cPasajero();
+    cPasajero(string codigo);
+    cPasajero();
 	virtual ~cPasajero();
     void llevadoporavion();
     void pedirbebida(cAzafata* A);
@@ -22,4 +23,5 @@ public:
     void volver_asiento();
     void dormir();
     void llamar_azafata(cAzafata* A);
+
 };

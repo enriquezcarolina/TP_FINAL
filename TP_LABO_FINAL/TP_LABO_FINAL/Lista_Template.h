@@ -25,21 +25,30 @@ public:
 	 void Eliminar(string clave);
 	// void Eliminar(const T *item);
 	// void Eliminar(unsigned int pos);
-
+	 unsigned int getCA();
 	void Listar();
 	T* BuscarItem(string clave);
 	T* getItem(unsigned int pos);
 
 	unsigned int getItemPos(string clave);
 
-	unsigned int getCA();
+
 	unsigned int getTAM();
+	T* operator[](unsigned int pos);
+	
 };
 
 template<class T>
 unsigned int cListaT<T>::getTAM()
 {
 	return TAM;
+}
+template<class T>
+inline T* cListaT<T>::operator[](unsigned int pos)
+{
+	if (pos < CA)
+		return vector[pos];
+	return NULL;
 }
 template<class T>
 unsigned int cListaT<T>::getCA()
@@ -77,7 +86,9 @@ cListaT<T>::~cListaT()
 
 }
 
- template<class T>
+
+
+template<class T>
  void cListaT<T>::Listar()
  {
 

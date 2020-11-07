@@ -11,6 +11,9 @@ protected:
 
 public:
 	cPersona(string DNI, string NYA);
+	cPersona();
+	void imprimir();
+	string getclave();
 	virtual ~cPersona();
 	string get_NYA(){return NYA;}
 };

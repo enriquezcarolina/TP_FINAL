@@ -2,17 +2,17 @@
 #include <string>
 #include <iostream>
 #include "cPersona.h"
-#include "cPasajero.h"
-#include "cPiloto.h"
 using namespace std;
+class cPiloto;
 
+class cPasajero;
 class cAzafata: public cPersona
 {
 protected:
     static int cantidad_azafatas;
 public:
 	cAzafata();
-	virtual ~cAzafata();
+    ~cAzafata();
     void llevadoporavion();
     void entregar_bebida(cPasajero* p);
     void entregar_comida(cPasajero* p);

@@ -24,6 +24,6 @@ int main()
 	// comparar la lista de personas con la de codigos y ingresar al avion solo las personas que tienen el codigo en la lista (con entrar_avion(cPersona* p)
 	// funcion simmulador hara q ocurran eventos aleatoriamente 
 	// las funciones registraran los eventos que pasan durante el vuelo en el logger del avion (que se imprmira al finalizar el programa)
-
+	delete personas, a, p, aero;
 	return 0;
 }

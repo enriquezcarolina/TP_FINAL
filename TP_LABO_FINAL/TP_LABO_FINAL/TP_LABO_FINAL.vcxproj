@@ -140,9 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cAvion.cpp" />
+    <ClCompile Include="cAzafata.cpp" />
     <ClCompile Include="cCopiloto.cpp" />
     <ClCompile Include="cEjecutivo.cpp" />
     <ClCompile Include="cMarshall.cpp" />
+    <ClCompile Include="cPasajero.cpp" />
     <ClCompile Include="cPersona.cpp" />
     <ClCompile Include="cPrimera.cpp" />
     <ClCompile Include="cTurista.cpp" />

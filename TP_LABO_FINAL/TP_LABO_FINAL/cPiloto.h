@@ -2,7 +2,8 @@
 #include <string>
 #include <iostream>
 #include "cPersona.h"
-#include "cAzafata.h"
+class cAzafata;
+class cPasajero;
 using namespace std;
 
 class cPiloto:public cPersona

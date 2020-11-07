@@ -15,7 +15,7 @@ public:
 	virtual ~cPersona();
 	void imprimir();
 	string getclave();
-	string getNYA();
+
 	virtual string to_string();
 
 	string get_NYA(){return NYA;}

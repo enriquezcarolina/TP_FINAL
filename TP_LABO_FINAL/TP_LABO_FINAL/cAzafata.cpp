@@ -45,11 +45,11 @@ void cAzafata::atender_descompensado(){
     cAvion::registrar("atendio a un pasajero descompensado", this);
 }
 
-void hablar_altavoz(){
+void cAzafata::hablar_altavoz(){
     cAvion::registrar("realizo un anuncio por altavoz", this);
 }
 
-void hablar_pasajero(cPasajero* pas){
+void cAzafata::hablar_pasajero(cPasajero* pas){
     cAvion::registrar("hablo con un pasajero", this);
     pas->volver_asiento();
 }

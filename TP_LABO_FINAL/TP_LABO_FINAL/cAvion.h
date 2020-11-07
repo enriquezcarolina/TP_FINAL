@@ -3,6 +3,8 @@
 #include"cPersona.h"
 #include "Logger.h"
 #include "cPiloto.h"
+#include "Log.h"
+
 
 enum{PASAJERO, PILOTO};
 

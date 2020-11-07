@@ -19,5 +19,5 @@ void cPrimera::hacer_masajes(){
 
 void cPrimera::pedir_champagne(cAzafata* a){
     cAvion::registrar("pidio champagne", this);
-    a->entregar_bebida();
+    a->entregar_bebida(this);
 }

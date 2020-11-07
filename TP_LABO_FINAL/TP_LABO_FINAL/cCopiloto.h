@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include "cPiloto.h"
+#include "cPersona.h"
 using namespace std;
 
 class cCopiloto:public cPiloto{
@@ -13,5 +14,6 @@ public:
     void pedir_despegue();
     string to_string();
 };
+
 
 

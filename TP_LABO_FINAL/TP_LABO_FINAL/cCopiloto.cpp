@@ -1,7 +1,8 @@
 #include "cCopiloto.h"
 #include "cAvion.h"
-
-cCopiloto::cCopiloto()
+#include "cPersona.h"
+#include "cPiloto.h"
+cCopiloto::cCopiloto():cPiloto()
 {
 }
 

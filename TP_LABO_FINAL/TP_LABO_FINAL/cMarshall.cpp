@@ -1,5 +1,6 @@
 #include "cMarshall.h"
 #include "cAvion.h"
+#include "cPasajero.h"
 
 cMarshall::cMarshall(string codigo)
 {
@@ -19,7 +20,7 @@ void cMarshall::reducir_pasajero(cPasajero* p){
 	this->encerrar_prision(p);
 }
 
-void encerrar_prision(cPasajero* p){
+void cMarshall::encerrar_prision(cPasajero* p){
 	cAvion::registrar("encerro a un pasajero", this);
 	p->encerrado();
 }

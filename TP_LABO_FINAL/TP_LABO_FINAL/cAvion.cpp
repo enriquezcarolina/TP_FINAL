@@ -4,8 +4,8 @@
 
 cAvion::cAvion(cListaT<cPersona>* pasajeros, cListaT<cPersona>* empleados)
 {
-	pasajeros = new cListaT<cPersona>();
-	empleados = new cListaT<cPersona>();
+	this-> pasajeros = new cListaT<cPersona>();
+	this-> empleados = new cListaT<cPersona>();
 	
 	for (unsigned int i = 0; i<pasajeros->getCA(); i++)
 	{

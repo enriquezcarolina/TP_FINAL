@@ -54,7 +54,7 @@ void cPasajero::descompensarse(cAzafata* A){
 	A->atender_descompensado();
 }
 
-void cPasajero::ausar_problemas(cMarshall* m){
+void cPasajero::causar_problemas(cMarshall* m){
 	cAvion::registrar("causo problemas en el avion", this);
 	m->reducir_pasajero(this);
 }

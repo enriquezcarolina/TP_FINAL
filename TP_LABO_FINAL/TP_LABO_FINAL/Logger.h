@@ -5,12 +5,12 @@
 #include <string>
 using namespace std;
 
-#define NMAX 20
+#define MAX 20
 
 class Logger : protected cListaT<Log>
 {
 public:
-	Logger(int Nmax = NMAX);
+	Logger(int Nmax = MAX);
 	virtual ~Logger() {
 	}
 
@@ -24,7 +24,7 @@ public:
 
 	void Listar() {
 		for (int i = 0; i < CA; ++i)
-			cout << vector[i]->to_string() << endl;
+			cout << vector[i] << endl;
 	}
 
 };

@@ -12,9 +12,12 @@ protected:
 public:
 	cPersona(string DNI, string NYA);
 	cPersona();
+	virtual ~cPersona();
 	void imprimir();
 	string getclave();
-	virtual ~cPersona();
+	string getNYA();
+	virtual string to_string();
+
 	string get_NYA(){return NYA;}
 };
 

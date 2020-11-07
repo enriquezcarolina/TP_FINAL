@@ -20,6 +20,16 @@ string cPersona::getclave()
 	return DNI;
 }
 
+string cPersona::get_NYA(){
+	return NYA;
+}
+
 cPersona::~cPersona()
 {
+}
+
+virtual string cPersona::to_string(){
+
+	return "Nombre y apellido: " + this->NYA + "\nDNI: " + this->DNI;
+
 }

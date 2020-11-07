@@ -10,6 +10,6 @@ public:
     cEjecutivo();
     ~cEjecutivo();
     void trabajar_notebook();
-
+    string to_string();
 };
 

@@ -12,6 +12,6 @@ public:
     ~cPrimera();
     void hacer_masajes();
     void pedir_champagne(cAzafata* a);
-
+    string to_string();
 };
 

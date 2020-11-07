@@ -9,9 +9,9 @@ class cCopiloto:public cPiloto{
 public:
     cCopiloto();
     ~cCopiloto();
-    bool pedir_aterrizaje();
-    bool pedir_despegue();
-
+    void pedir_aterrizaje();
+    void pedir_despegue();
+    string to_string();
 };
 
 

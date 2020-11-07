@@ -19,4 +19,5 @@ public:
     void pedircomida(cAzafata* A);
     void pedir_azafata_hable_altavoz(cAzafata* A);
     void pedir_azafata_hable_pasajero(cAzafata* A, cPasajero* P);
+    string to_string();
 };

@@ -44,7 +44,7 @@ unsigned int cListaT<T>::getTAM()
 	return TAM;
 }
 template<class T>
-inline T* cListaT<T>::operator[](unsigned int pos)
+T* cListaT<T>::operator[](unsigned int pos)
 {
 	if (pos < CA)
 		return vector[pos];

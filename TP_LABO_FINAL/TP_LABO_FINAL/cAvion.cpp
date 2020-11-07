@@ -2,6 +2,7 @@
 
 #define CANT_EVENTOS 20
 
+Logger cAvion::registros = NULL;
 cAvion::cAvion(cListaT<cPersona>* pasajeros, cListaT<cPersona>* empleados)
 {
 	this-> pasajeros = new cListaT<cPersona>();
@@ -47,49 +48,50 @@ void cAvion::volar(){
 
  }
 
-// cPersona* cAvion::azafata_random(){
+ cPersona* cAvion::azafata_random(){
+	 cAzafata *a;
+ 	int pos=0;
+ 	do{
+ 		pos = rand()%empleados->getCA();
+ 		if(dynamic_cast<cAzafata*>(empleados->getItem(pos))!=NULL){ //chequear que es del tipo cAzafata*
+			a = dynamic_cast<cAzafata*>(empleados->getItem(pos));
+			if (!a->get_ocupada()) //si no esta ocupada
+ 				return empleados->getItem(pos);
+		}
+ 	}while(1);
 
-// 	int pos=0;
-// 	do{
-// 		pos = rand()%empleados->getCA();
-// 		if(dynamic_cast<cAzafata*>(empleados[pos])!=NULL){ //chequear que es del tipo cAzafata*
-// 			//if(!empleados[pos]->get_ocupada()) //si no esta ocupada
-// 				return empleados[pos];
-// 		}
-// 	}while(1);
+ 	return empleados->getItem(pos);
+    }
 
-// 	return empleados[pos];
-// }
-
-// cPersona* cAvion::pasajero_random(){
+ cPersona* cAvion::pasajero_random(){
 	
-// 	int pos=0;
-// 	do{
-// 		pos = rand()%pasajeros->getCA();
-// 	}while(dynamic_cast<cPasajero*>(pasajeros[pos]) == NULL); //chequear que el pasajero no es un marshall
+	int pos=0;
+ 	do{
+		pos = rand()%pasajeros->getCA();
+ 	}while(dynamic_cast<cPasajero*>(pasajeros->getItem(pos)) == NULL); //chequear que el pasajero no es un marshall
 	
-// 	return pasajeros[pos];
-// }
+ 	return pasajeros->getItem(pos);
+ }
 
-// cPersona* cAvion::piloto_random(){
+ cPersona* cAvion::piloto_random(){
 
-// 	int pos=0;
-// 	do{
-// 		pos = rand()%empleados->getCA();
-// 	}while(dynamic_cast<cPiloto*>(empleados[pos]) == NULL); //seguir buscando mientras no sea un piloto
+ 	int pos=0;
+ 	do{
+ 		pos = rand()%empleados->getCA();
+ 	}while(dynamic_cast<cPiloto*>(empleados->getItem(pos)) == NULL); //seguir buscando mientras no sea un piloto
 
-// 	return empleados[pos];
-// }
+	return empleados->getItem(pos);
+ }
 
 
-// cPersona* cAvion::get_marshall(){
+ cPersona* cAvion::get_marshall(){
 	
-// 	for(int i=0; i<pasajeros->getCA(); i++){
-// 			if(dynamic_cast<cMarshall*>(pasajeros[i])!=NULL){
-// 				return pasajeros[i];
-// 			}
-// 		}
-// }
+ 	for(int i=0; i<pasajeros->getCA(); i++){
+ 			if(dynamic_cast<cMarshall*>(pasajeros->getItem(i))!=NULL){
+ 				return pasajeros->getItem(i);
+ 			}
+ 		}
+ }
 
 void cAvion::tick(int p){
 

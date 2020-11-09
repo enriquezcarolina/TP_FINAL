@@ -14,8 +14,8 @@ bool cAzafata::get_ocupada(){
     return ocupada;
 }
 
-string cAzafata::to_string(){
-    return cPersona::to_string() + "\nTipo: Azafata";
+string cAzafata::tostring(){
+    return cPersona::tostring() + "\nTipo: Azafata";
 }
 
 void cAzafata::entregar_bebida(cPersona *pas){

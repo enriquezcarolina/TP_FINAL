@@ -12,7 +12,7 @@ public:
     ~cCopiloto();
     void pedir_aterrizaje();
     void pedir_despegue();
-    string to_string();
+    string tostring();
 };
 
 

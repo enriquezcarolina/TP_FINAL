@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <exception>
 #include "cAvion.h"
 #include "cCopiloto.h"
 #include "cEjecutivo.h"
@@ -14,22 +15,19 @@
 #include "Logger.h"
 using namespace std;
 
-/* 
-
- CODIGO UNICO (Contiene 13 dígitos): 
-	- 2 caracteres que indican el sector (TU es turista, BS es ejecutiva, y PC es primera clase) 
-	- 8 dígitos con el DNI del pasajero
-	- 2 indicando fila (01-99) 
-	- 1 letra (A-J) indicando el asiento de la fila
-
-*/
+#define CANT_CODIGOS 10
+#define CANT_FILAS 10
+#define CANT_ASIENTOS 6
 
 ostream& operator<<(ostream& out, const Log& log);
+string generarcodigo(cPersona* p);
+void generarTripulantes(cListaT<cPersona> *t);
+//verifica si el codigo del pasajero esta en la lista
+bool VerificarCodigos(string *C, cPasajero *p);
 
 int main()
 {
-
-	/*
+		/*
 	- Se crea un avion
 	- Lista de personas, pasajeros y tripulantes
 	- Lista de strings para codigos
@@ -46,6 +44,36 @@ int main()
 	- Al final se imprimen todos los eventos que se registraron
 */
 
+	string codigos[CANT_CODIGOS];
+	cListaT<cPasajero> *pasajeros; //solo pasajeros, crear aparte un marshall
+	cMarshall* marshall= new cMarshall();
+	cListaT<cPersona> *tripulantes;
+
+	cAvion *Avion = new cAvion(tripulantes);
+	Avion->AgregarPasajero(marshall);
+
+	int fila = 1;
+	eAsientos asiento = B; //el marshall por defecto tiene el primer asiento, el enum esta declarado en cPersona
+
+	for(int i=0; i<pasajeros->getCA(); i++){
+		if(asiento>CANT_ASIENTOS){
+			fila++;
+			asiento = A;
+			//cambio de fila y vuelvo al primer asiento
+		}
+		if(asiento>CANT_ASIENTOS && fila==CANT_FILAS)
+			break;
+		pasajeros->getItem(i)->set_Fila_Asiento(fila, asiento);
+		asiento++;
+	}
+
+	for(int i=0; i<pasajeros->getCA(); i++){
+		if(VerificarCodigos(codigos, pasajeros->getItem(i))) 
+			Avion->AgregarPasajero(pasajeros->getItem(i)); //si el codigo del pasajero esta en la lista lo agrego al avion
+		
+	}
+
+
 //	delete personas, a, p, aero;
 	return 0;
 }
@@ -54,3 +82,20 @@ ostream& operator<<(ostream& out, const Log& log){
 	return out<<log.persona->get_NYA()<<" "<<log.descripcion;
 }
 
+bool VerificarCodigos(string *C, cPasajero *p){
+	for(int i=0; i<CANT_CODIGOS; i++){
+		if(C[i]==p->get_codigo())
+			return true; //el codigo del pasajero esta en la lista
+	}
+	return false;
+}
+
+/* 
+
+ CODIGO UNICO (Contiene 13 dígitos): 
+	- 2 caracteres que indican el sector (TU es turista, BS es ejecutiva, y PC es primera clase) 
+	- 8 dígitos con el DNI del pasajero
+	- 2 indicando fila (01-99) 
+	- 1 letra (A-J) indicando el asiento de la fila
+
+*/

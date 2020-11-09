@@ -16,8 +16,9 @@ private:
   static Logger registros;
 
 public:
-  cAvion(cListaT<cPersona>* pasajeros, cListaT<cPersona>* empleados);
+  cAvion(cListaT<cPersona>* empleados);
   ~cAvion();
+  void AgregarPasajero(cPersona* pasajero);
   void volar();
   //tick() llama a un evento random
   void tick(int p);
@@ -26,7 +27,7 @@ public:
   cPersona* piloto_random();
   cPersona* get_marshall();
 
-  string to_string();
+  string tostring();
   void imprimir();
   void imprimir_eventos();
   static void registrar(string descripcion, cPersona* p);

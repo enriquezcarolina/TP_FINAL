@@ -2,6 +2,7 @@
 #define NMAX 10
 
 #include <string>
+#include <exception>
 
 using namespace std;
 

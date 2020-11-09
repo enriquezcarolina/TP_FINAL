@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+enum eAsientos{A, B, C, D, E, F, G};
+
 class cPersona
 {
 protected:
@@ -15,8 +17,7 @@ public:
 	virtual ~cPersona();
 	void imprimir();
 	string getclave();
-
-	virtual string to_string();
+	virtual string tostring();
 
 	string get_NYA(){return NYA;}
 };

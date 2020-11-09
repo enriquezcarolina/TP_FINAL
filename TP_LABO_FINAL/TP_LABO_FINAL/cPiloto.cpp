@@ -1,16 +1,16 @@
 #include "cPiloto.h"
 #include "cAvion.h"
 
-string cPiloto::to_string(){
-    return cPersona::to_string() + "\nTipo: PILOTO";
-}
-
 cPiloto::cPiloto()
 {
 }
 
 cPiloto::~cPiloto()
 {
+}
+
+string cPiloto::tostring(){
+    return cPersona::tostring() + "\nTipo: PILOTO";
 }
 
 void cPiloto::anuncio_altavoz(){

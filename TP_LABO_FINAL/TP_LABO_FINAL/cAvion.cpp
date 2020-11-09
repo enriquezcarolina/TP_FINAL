@@ -3,15 +3,10 @@
 #define CANT_EVENTOS 20
 
 Logger cAvion::registros = NULL;
-cAvion::cAvion(cListaT<cPersona>* pasajeros, cListaT<cPersona>* empleados)
+cAvion::cAvion(cListaT<cPersona>* empleados)
 {
 	this-> pasajeros = new cListaT<cPersona>();
 	this-> empleados = new cListaT<cPersona>();
-	
-	for (unsigned int i = 0; i<pasajeros->getCA(); i++)
-	{
-		this->pasajeros->AgregarItem(pasajeros->getItem(i));
-	}
 
 	for (unsigned int i = 0; i<empleados->getCA(); i++)
 	{
@@ -22,6 +17,10 @@ cAvion::cAvion(cListaT<cPersona>* pasajeros, cListaT<cPersona>* empleados)
 
 cAvion::~cAvion()
 {
+}
+
+void cAvion::AgregarPasajero(cPersona* pasajero){
+	pasajeros->AgregarItem(pasajero);
 }
 
 void cAvion::imprimir()
@@ -63,7 +62,7 @@ void cAvion::volar(){
  	return empleados->getItem(pos);
     }
 
- cPersona* cAvion::pasajero_random(){
+cPersona* cAvion::pasajero_random(){
 	
 	int pos=0;
  	do{
@@ -73,7 +72,7 @@ void cAvion::volar(){
  	return pasajeros->getItem(pos);
  }
 
- cPersona* cAvion::piloto_random(){
+cPersona* cAvion::piloto_random(){
 
  	int pos=0;
  	do{
@@ -84,7 +83,7 @@ void cAvion::volar(){
  }
 
 
- cPersona* cAvion::get_marshall(){
+cPersona* cAvion::get_marshall(){
 	
  	for(int i=0; i<pasajeros->getCA(); i++){
  			if(dynamic_cast<cMarshall*>(pasajeros->getItem(i))!=NULL){
@@ -96,7 +95,6 @@ void cAvion::volar(){
 void cAvion::tick(int p){
 
 	if(p==PASAJERO){
-		
 
 	}
 

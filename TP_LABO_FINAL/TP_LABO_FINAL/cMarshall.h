@@ -11,10 +11,10 @@ private:
     string codigo;
 
 public:
-    cMarshall(string codigo);
+    cMarshall();
     ~cMarshall();
     void reducir_pasajero(cPasajero* p);
     void encerrar_prision(cPasajero* p);
-    string to_string();
+    string tostring();
 };
 

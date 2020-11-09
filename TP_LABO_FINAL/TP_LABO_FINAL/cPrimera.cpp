@@ -3,14 +3,15 @@
 
 cPrimera::cPrimera()
 {
+    codigo="PC"+DNI;
 }
 
 cPrimera::~cPrimera()
 {
 }
 
-string cPrimera::to_string(){
-    return cPasajero::to_string() + "\nClase: PRIMERA";
+string cPrimera::tostring(){
+    return cPasajero::tostring() + "\nClase: PRIMERA";
 }
 
 void cPrimera::hacer_masajes(){

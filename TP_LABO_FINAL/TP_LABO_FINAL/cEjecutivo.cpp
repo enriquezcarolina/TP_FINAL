@@ -3,6 +3,7 @@
 
 cEjecutivo::cEjecutivo()
 {
+    codigo="BS"+DNI;
 }
 
 cEjecutivo::~cEjecutivo()
@@ -10,7 +11,7 @@ cEjecutivo::~cEjecutivo()
 }
 
 string cEjecutivo::to_string(){
-    return cPasajero::to_string() + "\nClase: EJECUTIVO";
+    return cPasajero::tostring() + "\nClase: EJECUTIVO";
 }
 
 void cEjecutivo::trabajar_notebook(){

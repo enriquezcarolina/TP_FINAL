@@ -3,14 +3,15 @@
 
 cTurista::cTurista()
 {
+    codigo="TU"+DNI;
 }
 
 cTurista::~cTurista()
 {
 }
 
-string cTurista::to_string(){
-    return cPasajero::to_string() + "\nClase: TURISTA";
+string cTurista::tostring(){
+    return cPasajero::tostring() + "\nClase: TURISTA";
 }
 
 void cTurista::ver_pelicula(){

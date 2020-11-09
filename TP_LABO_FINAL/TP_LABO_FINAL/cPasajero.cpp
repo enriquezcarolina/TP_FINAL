@@ -16,9 +16,9 @@ cPasajero::~cPasajero(){
 
 }
 
-string cPasajero::to_string(){
+string cPasajero::tostring(){
 	
-	return cPersona::to_string() + "\nTipo: Pasajero" + "\nCodigo: " + this->codigo;
+	return cPersona::tostring() + "\nTipo: Pasajero" + "\nCodigo: " + this->codigo;
 
 }
 
@@ -62,3 +62,36 @@ void cPasajero::causar_problemas(cMarshall* m){
 void cPasajero::encerrado(){
 	cAvion::registrar("fue encerrado por el marshall", this);
 }
+
+ void cPasajero::set_Fila_Asiento(int fila, eAsientos asiento){
+	 codigo+=to_string(fila);
+	 switch(asiento){
+		 case A:
+			codigo+="A";
+			break;
+		case B:
+			codigo+="B";
+			break;
+		case C:
+			codigo+="C";
+			break;
+		case D:
+			codigo+="D";
+			break;
+		case E:
+			codigo+="E";
+			break;
+		case F:
+			codigo+="F";
+			break;
+		case G:
+			codigo+="G";
+			break;
+		default:
+			break;
+	 }
+ }
+
+ string cPasajero::get_codigo(){
+	 return codigo;
+ }

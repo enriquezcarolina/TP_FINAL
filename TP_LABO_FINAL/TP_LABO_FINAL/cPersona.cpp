@@ -26,7 +26,7 @@ cPersona::~cPersona()
 {
 }
 
- string cPersona::to_string(){
+ string cPersona::tostring(){
 
 	return "Nombre y apellido: " + this->NYA + "\nDNI: " + this->DNI;
 

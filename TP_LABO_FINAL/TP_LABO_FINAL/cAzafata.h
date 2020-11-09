@@ -25,5 +25,5 @@ public:
     void atender_descompensado();
     void hablar_altavoz();
     void hablar_pasajero(cPasajero* p);
-    string to_string();
+    string tostring();
 };

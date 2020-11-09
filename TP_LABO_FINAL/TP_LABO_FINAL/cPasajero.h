@@ -28,6 +28,7 @@ protected:
 public:
     cPasajero(string codigo);
     cPasajero();
+    
 	virtual ~cPasajero();
     void llevadoporavion();
     void pedirbebida(cAzafata* A);
@@ -39,6 +40,8 @@ public:
     void descompensarse(cAzafata* A);
     void causar_problemas(cMarshall *m);
     void encerrado();
-    virtual string to_string();
+    virtual string tostring();
+    void set_Fila_Asiento(int fila, eAsientos asiento);
+    string get_codigo();
 
 };

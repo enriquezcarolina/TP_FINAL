@@ -11,7 +11,7 @@ public:
     ~cTurista();
     void ver_pelicula();
     void escuchar_musica();
-    string to_string();
+    string tostring();
 };
 
 

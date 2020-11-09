@@ -10,8 +10,8 @@ cCopiloto::~cCopiloto()
 {
 }
 
-string cCopiloto::to_string(){
-    return cPersona::to_string() + "\nTipo: COPILOTO";
+string cCopiloto::tostring(){
+    return cPersona::tostring() + "\nTipo: COPILOTO";
 }
 
 void cCopiloto::pedir_aterrizaje(){

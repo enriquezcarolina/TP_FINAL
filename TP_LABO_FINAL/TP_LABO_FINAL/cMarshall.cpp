@@ -2,17 +2,18 @@
 #include "cAvion.h"
 #include "cPasajero.h"
 
-cMarshall::cMarshall(string codigo)
+cMarshall::cMarshall()
 {
-	this->codigo = codigo;
+	codigo="PC"+DNI+to_string(1)+"A"; //el marshall por defecto tiene el primer asiento;
+
 }
 
 cMarshall::~cMarshall()
 {
 }
 
-string cMarshall::to_string(){
-	return cPersona::to_string() + "\nTipo: Marshall"+"\nCodigo: " + codigo;
+string cMarshall::tostring(){
+	return cPersona::tostring() + "\nTipo: Marshall"+"\nCodigo: " + codigo;
 }
 
 void cMarshall::reducir_pasajero(cPasajero* p){

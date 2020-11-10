@@ -64,7 +64,7 @@ int main()
 		if(asiento>CANT_ASIENTOS && fila==CANT_FILAS)
 			break;
 		pasajeros->getItem(i)->set_Fila_Asiento(fila, asiento);
-		asiento++;
+	    asiento++;
 	}
 
 	for(int i=0; i<pasajeros->getCA(); i++){
@@ -78,6 +78,46 @@ int main()
 	return 0;
 }
 
+eAsientos operator++(eAsientos e)
+{
+	
+	if (e = A)
+	{
+		e = B;
+		return e;
+	}
+	if (e = B)
+	{
+		e = C;
+		return e;
+	}
+	if (e = C)
+	{
+		e = D;
+		return e;
+	}
+	if (e = D)
+	{
+		e = E;
+		return e;
+	}
+	if (e = E)
+	{
+		e = F;
+		return e;
+	}
+	if (e = F)
+	{
+		e = G;
+		return e;
+	}
+	if (e = G)
+	{
+		e = A;
+		return e;
+	}
+
+}
 ostream& operator<<(ostream& out, const Log& log){
 	return out<<log.persona->get_NYA()<<" "<<log.descripcion;
 }

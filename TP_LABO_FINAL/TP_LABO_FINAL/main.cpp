@@ -45,12 +45,12 @@ int main()
 */
 
 	string codigos[CANT_CODIGOS];
-	cListaT<cPasajero> *pasajeros; //solo pasajeros, crear aparte un marshall
-	cMarshall* marshall= new cMarshall();
-	cListaT<cPersona> *tripulantes;
-
-	cAvion *Avion = new cAvion(tripulantes);
-	Avion->AgregarPasajero(marshall);
+	cListaT<cPasajero> *pasajeros = new cListaT<cPasajero>(); //solo pasajeros, crear aparte un marshall
+	//cMarshall* marshall= new cMarshall();
+	cListaT<cPersona> *tripulantes= new cListaT<cPersona>();
+	cListaT<cPasajero>* p = new cListaT<cPasajero>();
+	cAvion *Avion = new cAvion(tripulantes, p);
+	//Avion->AgregarPasajero(marshall);
 
 	int fila = 1;
 	char asiento = 'B'; //el marshall por defecto tiene el primer asiento

@@ -11,20 +11,20 @@ enum{PASAJERO, PILOTO};
 class cAvion
 {
 private:
-  cListaT <cPersona>* pasajeros;
+  cListaT <cPasajero>* pasajeros;
   cListaT <cPersona>* empleados;
   static Logger registros;
 
 public:
-  cAvion(cListaT<cPersona>* empleados);
+  cAvion(cListaT<cPersona>* empleados, cListaT <cPasajero>* pasajeros);
   ~cAvion();
-  void AgregarPasajero(cPersona* pasajero);
+  void AgregarPasajero(cPasajero* pasajero);
   void volar();
   //llama a un evento random
   void tick(int p);
-  cPersona* azafata_random();
-  cPersona* pasajero_random();
-  cPersona* piloto_random();
+  cAzafata* azafata_random();
+  cPasajero* pasajero_random();
+  cPiloto* piloto_random();
   cPersona* get_marshall();
 
   string tostring();

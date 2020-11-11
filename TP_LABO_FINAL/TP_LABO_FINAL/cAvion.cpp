@@ -3,9 +3,9 @@
 #define CANT_EVENTOS 20
 
 Logger cAvion::registros = NULL;
-cAvion::cAvion(cListaT<cPersona>* empleados)
+cAvion::cAvion(cListaT<cPersona>* empleados, cListaT <cPasajero>* pasajeros)
 {
-	this-> pasajeros = new cListaT<cPersona>();
+	this-> pasajeros = new cListaT<cPasajero>();
 	this-> empleados = new cListaT<cPersona>();
 
 	for (unsigned int i = 0; i<empleados->getCA(); i++)
@@ -19,7 +19,7 @@ cAvion::~cAvion()
 {
 }
 
-void cAvion::AgregarPasajero(cPersona* pasajero){
+void cAvion::AgregarPasajero(cPasajero* pasajero){
 	pasajeros->AgregarItem(pasajero);
 }
 
@@ -47,39 +47,41 @@ void cAvion::volar(){
 
  }
 
- cPersona* cAvion::azafata_random(){
+ cAzafata* cAvion::azafata_random(){
 	 cAzafata *a;
+	 int num = pasajeros->getCA() + 1;
  	int pos=0;
  	do{
- 		pos = rand()%empleados->getCA();
+ 		pos = rand()%num;
  		if(dynamic_cast<cAzafata*>(empleados->getItem(pos))!=NULL){ //chequear que es del tipo cAzafata*
 			a = dynamic_cast<cAzafata*>(empleados->getItem(pos));
 			if (!a->get_ocupada()) //si no esta ocupada
- 				return empleados->getItem(pos);
+ 				return a;
 		}
  	}while(1);
 
- 	return empleados->getItem(pos);
+ 	return a;
     }
 
-cPersona* cAvion::pasajero_random(){
-	
+cPasajero* cAvion::pasajero_random(){
+	int num = pasajeros->getCA() + 1;
 	int pos=0;
- 	do{
-		pos = rand()%pasajeros->getCA();
- 	}while(dynamic_cast<cPasajero*>(pasajeros->getItem(pos)) == NULL); //chequear que el pasajero no es un marshall
-	
+ //	do{
+		pos = rand() % num;
+// 	}while(dynamic_cast<cPasajero*>(pasajeros->getItem(pos)) == NULL); //chequear que el pasajero no es un marshall
+	// si hago el marshall herencia de pasajero puedo hacer un dynamic cast 
  	return pasajeros->getItem(pos);
  }
 
-cPersona* cAvion::piloto_random(){
-
+cPiloto* cAvion::piloto_random(){
+	cPiloto* p;
+	int num = empleados->getCA() + 1;
  	int pos=0;
  	do{
- 		pos = rand()%empleados->getCA();
+ 		pos = rand()%num;
  	}while(dynamic_cast<cPiloto*>(empleados->getItem(pos)) == NULL); //seguir buscando mientras no sea un piloto
-
-	return empleados->getItem(pos);
+	p = dynamic_cast<cPiloto*>(empleados->getItem(pos));
+	return p;
  }
 
 
@@ -94,11 +96,56 @@ cPersona* cAvion::get_marshall(){
 
 void cAvion::tick(int p){
 
-	if(p==PASAJERO){
+	if (p == PASAJERO) {
+		int r = rand() % 5;
+		cPasajero* p = cAvion::pasajero_random();
+		switch (r)
+		{
+		case 0:
+			p->ir_banio();
+			break;
+		case 1:
+			p->dormir();
+			break;
+		case 2:
+			p->descompensarse(cAvion::azafata_random());
+			break;
+		case 3:
+			p->encerrado();
+			break;
+		case 4:
+			//p->causar_problemas();
+			break;
+		}
 
 	}
 
 	else if(p==PILOTO){
+		int r = rand() % 6;
+		cPiloto* piloto = cAvion::piloto_random();
+		switch (r)
+		{
+		case 0:
+			piloto->anuncio_altavoz();
+			break;
+		case 1:
+			piloto->pedirbebida(cAvion::azafata_random());
+			break;
+		case 2:
+			piloto->pedircomida(cAvion::azafata_random());
+			break;
+		case 3:
+			piloto->pedir_azafata_hable_altavoz(cAvion::azafata_random());
+			break;
+		case 4:
+			piloto->pedir_azafata_hable_pasajero(cAvion::azafata_random(), cAvion::pasajero_random());
+			break;
+		case 5:
+			//piloto->pilotear(); todavia no la definimos
+			break;
+			
+		}
+
 
 	}
 }

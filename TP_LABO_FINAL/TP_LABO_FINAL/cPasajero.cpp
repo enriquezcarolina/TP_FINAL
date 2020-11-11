@@ -16,6 +16,10 @@ cPasajero::~cPasajero(){
 
 }
 
+void cPasajero::llevadoporavion()
+{
+}
+
 string cPasajero::tostring(){
 	
 	return cPersona::tostring() + "\nTipo: Pasajero" + "\nCodigo: " + this->codigo;

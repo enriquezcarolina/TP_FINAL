@@ -1,7 +1,7 @@
 #include "cEjecutivo.h"
 #include "cAvion.h"
 
-cEjecutivo::cEjecutivo()
+cEjecutivo::cEjecutivo(string dni, string nya):cPasajero(dni, nya)
 {
     codigo="BS"+DNI;
 }

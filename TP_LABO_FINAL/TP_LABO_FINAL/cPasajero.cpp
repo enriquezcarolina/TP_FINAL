@@ -7,9 +7,9 @@ cPasajero::cPasajero(string codigo)
 
 }
 
-cPasajero::cPasajero()
+cPasajero::cPasajero(string dni, string nya): cPersona(dni, nya)
 {
-
+	
 }
 
 cPasajero::~cPasajero(){
@@ -63,33 +63,11 @@ void cPasajero::encerrado(){
 	cAvion::registrar("fue encerrado por el marshall", this);
 }
 
- void cPasajero::set_Fila_Asiento(int fila, eAsientos asiento){
-	 codigo+=to_string(fila);
-	 switch(asiento){
-		 case A:
-			codigo+="A";
-			break;
-		case B:
-			codigo+="B";
-			break;
-		case C:
-			codigo+="C";
-			break;
-		case D:
-			codigo+="D";
-			break;
-		case E:
-			codigo+="E";
-			break;
-		case F:
-			codigo+="F";
-			break;
-		case G:
-			codigo+="G";
-			break;
-		default:
-			break;
+ void cPasajero::set_Fila_Asiento(int fila, char asiento){
+	 if(fila<10){
+		 codigo+="0"; //para que quede 01, 02, .... 09, 10, 11
 	 }
+	 codigo = codigo + to_string(fila) + asiento;
  }
 
  string cPasajero::get_codigo(){

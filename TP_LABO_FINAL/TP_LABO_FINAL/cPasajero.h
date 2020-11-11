@@ -27,7 +27,7 @@ protected:
 
 public:
     cPasajero(string codigo);
-    cPasajero();
+    cPasajero(string dni, string nya);
     
 	virtual ~cPasajero();
     void llevadoporavion();
@@ -41,7 +41,7 @@ public:
     void causar_problemas(cMarshall *m);
     void encerrado();
     virtual string tostring();
-    void set_Fila_Asiento(int fila, eAsientos asiento);
+    void set_Fila_Asiento(int fila, char asiento);
     string get_codigo();
 
 };

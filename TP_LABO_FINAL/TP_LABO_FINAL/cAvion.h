@@ -20,7 +20,7 @@ public:
   ~cAvion();
   void AgregarPasajero(cPersona* pasajero);
   void volar();
-  //tick() llama a un evento random
+  //llama a un evento random
   void tick(int p);
   cPersona* azafata_random();
   cPersona* pasajero_random();

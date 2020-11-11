@@ -1,7 +1,7 @@
 #include "cTurista.h"
 #include "cAvion.h"
 
-cTurista::cTurista()
+cTurista::cTurista(string dni, string nya):cPasajero(dni, nya)
 {
     codigo="TU"+DNI;
 }

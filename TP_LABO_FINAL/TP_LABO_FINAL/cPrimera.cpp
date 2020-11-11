@@ -1,7 +1,7 @@
 #include "cPrimera.h"
 #include "cAvion.h"
 
-cPrimera::cPrimera()
+cPrimera::cPrimera(string dni, string nya):cPasajero(dni, nya)
 {
     codigo="PC"+DNI;
 }

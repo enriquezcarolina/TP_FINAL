@@ -17,7 +17,7 @@ using namespace std;
 
 #define CANT_CODIGOS 10
 #define CANT_FILAS 10
-#define CANT_ASIENTOS 6
+#define CANT_ASIENTOS 'J'
 
 ostream& operator<<(ostream& out, const Log& log);
 string generarcodigo(cPersona* p);
@@ -53,12 +53,12 @@ int main()
 	Avion->AgregarPasajero(marshall);
 
 	int fila = 1;
-	eAsientos asiento = B; //el marshall por defecto tiene el primer asiento, el enum esta declarado en cPersona
+	char asiento = 'B'; //el marshall por defecto tiene el primer asiento
 
 	for(int i=0; i<pasajeros->getCA(); i++){
 		if(asiento>CANT_ASIENTOS){
 			fila++;
-			asiento = A;
+			asiento = 'A';
 			//cambio de fila y vuelvo al primer asiento
 		}
 		if(asiento>CANT_ASIENTOS && fila==CANT_FILAS)
@@ -67,57 +67,22 @@ int main()
 	    asiento++;
 	}
 
+	//FALTA CARGAR LOS CODIGOS DE LOS PASAJEROS A LA LISTA DE CODIGOS
+
 	for(int i=0; i<pasajeros->getCA(); i++){
 		if(VerificarCodigos(codigos, pasajeros->getItem(i))) 
 			Avion->AgregarPasajero(pasajeros->getItem(i)); //si el codigo del pasajero esta en la lista lo agrego al avion
 		
 	}
 
+	Avion->volar();
+
+	Avion->imprimir_eventos();
 
 //	delete personas, a, p, aero;
 	return 0;
 }
 
-eAsientos operator++(eAsientos e)
-{
-	
-	if (e = A)
-	{
-		e = B;
-		return e;
-	}
-	if (e = B)
-	{
-		e = C;
-		return e;
-	}
-	if (e = C)
-	{
-		e = D;
-		return e;
-	}
-	if (e = D)
-	{
-		e = E;
-		return e;
-	}
-	if (e = E)
-	{
-		e = F;
-		return e;
-	}
-	if (e = F)
-	{
-		e = G;
-		return e;
-	}
-	if (e = G)
-	{
-		e = A;
-		return e;
-	}
-
-}
 ostream& operator<<(ostream& out, const Log& log){
 	return out<<log.persona->get_NYA()<<" "<<log.descripcion;
 }

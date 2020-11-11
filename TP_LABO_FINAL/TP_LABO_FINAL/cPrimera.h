@@ -8,7 +8,7 @@ using namespace std;
 class cPrimera:public cPasajero{
 
 public:
-    cPrimera();
+    cPrimera(string dni, string nya);
     ~cPrimera();
     void hacer_masajes();
     void pedir_champagne(cAzafata* a);

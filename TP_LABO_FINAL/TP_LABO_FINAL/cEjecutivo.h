@@ -7,7 +7,7 @@ using namespace std;
 class cEjecutivo:public cPasajero{
 
 public:
-    cEjecutivo();
+    cEjecutivo(string dni, string nya);
     ~cEjecutivo();
     void trabajar_notebook();
     string to_string();

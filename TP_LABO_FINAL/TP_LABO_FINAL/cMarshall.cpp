@@ -4,7 +4,7 @@
 
 cMarshall::cMarshall()
 {
-	codigo="PC"+DNI+to_string(1)+"A"; //el marshall por defecto tiene el primer asiento;
+	codigo="PC"+DNI+"01A"; //el marshall por defecto tiene el primer asiento;
 
 }
 

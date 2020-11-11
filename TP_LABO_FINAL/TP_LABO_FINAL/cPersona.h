@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 
-enum eAsientos{A, B, C, D, E, F, G};
 
 class cPersona
 {
@@ -17,7 +16,7 @@ public:
 	virtual ~cPersona();
 	void imprimir();
 	string getclave();
-	virtual string tostring();
+	virtual string tostring()=0;
 
 	string get_NYA(){return NYA;}
 };

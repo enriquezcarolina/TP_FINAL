@@ -3,9 +3,9 @@
 #define CANT_EVENTOS 20
 
 Logger cAvion::registros = NULL;
-cAvion::cAvion(cListaT<cPersona>* empleados, cListaT <cPasajero>* pasajeros)
+cAvion::cAvion(cListaT<cPersona>* empleados, cListaT <cPersona>* pasajeros)
 {
-	this-> pasajeros = new cListaT<cPasajero>();
+	this-> pasajeros = new cListaT<cPersona>();
 	this-> empleados = new cListaT<cPersona>();
 
 	for (unsigned int i = 0; i<empleados->getCA(); i++)
@@ -19,7 +19,7 @@ cAvion::~cAvion()
 {
 }
 
-void cAvion::AgregarPasajero(cPasajero* pasajero){
+void cAvion::AgregarPasajero(cPersona* pasajero){
 	pasajeros->AgregarItem(pasajero);
 }
 
@@ -65,12 +65,14 @@ void cAvion::volar(){
 
 cPasajero* cAvion::pasajero_random(){
 	int num = pasajeros->getCA() + 1;
+	cPasajero* p;
 	int pos=0;
- //	do{
+ 	do{
 		pos = rand() % num;
-// 	}while(dynamic_cast<cPasajero*>(pasajeros->getItem(pos)) == NULL); //chequear que el pasajero no es un marshall
+ 	}while(dynamic_cast<cPasajero*>(pasajeros->getItem(pos)) != NULL); //chequear que el pasajero no es un marshall
 	// si hago el marshall herencia de pasajero puedo hacer un dynamic cast 
- 	return pasajeros->getItem(pos);
+ 	p= dynamic_cast<cPasajero*>(pasajeros->getItem(pos));
+	return p;
  }
 
 cPiloto* cAvion::piloto_random(){
@@ -79,17 +81,18 @@ cPiloto* cAvion::piloto_random(){
  	int pos=0;
  	do{
  		pos = rand()%num;
- 	}while(dynamic_cast<cPiloto*>(empleados->getItem(pos)) == NULL); //seguir buscando mientras no sea un piloto
+ 	}while(dynamic_cast<cPiloto*>(empleados->getItem(pos)) == NULL);	 //seguir buscando mientras no sea un piloto
 	p = dynamic_cast<cPiloto*>(empleados->getItem(pos));
 	return p;
  }
 
 
-cPersona* cAvion::get_marshall(){
-	
+cMarshall* cAvion::get_marshall(){
+	cMarshall* m;
  	for(int i=0; i<pasajeros->getCA(); i++){
  			if(dynamic_cast<cMarshall*>(pasajeros->getItem(i))!=NULL){
- 				return pasajeros->getItem(i);
+				m = dynamic_cast<cMarshall*>(pasajeros->getItem(i));
+				return m;
  			}
  		}
  }
@@ -114,7 +117,7 @@ void cAvion::tick(int p){
 			p->encerrado();
 			break;
 		case 4:
-			//p->causar_problemas();
+			p->causar_problemas(cAvion::get_marshall());
 			break;
 		}
 

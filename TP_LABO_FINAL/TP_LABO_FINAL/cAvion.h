@@ -26,6 +26,7 @@ public:
   cPasajero* pasajero_random();
   cPiloto* piloto_random();
   cMarshall* get_marshall();
+  cCopiloto* get_copiloto();
 
   string tostring();
   void imprimir();

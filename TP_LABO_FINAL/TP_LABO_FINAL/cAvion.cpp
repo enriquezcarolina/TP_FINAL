@@ -39,13 +39,21 @@ void cAvion::registrar(string descripcion, cPersona* p){
 }
 
 void cAvion::volar(){
-
+	get_copiloto()->pedir_despegue();
 	for (int i=0; i<CANT_EVENTOS; i++){
 		tick(rand()%2);//dependiendo si es 0 o 1 un piloto random hace una actividad o un pasajero random hace una actividad
 		// los eventos de azafata y marshall dependen de los de los pasajeros y los pilotos
 	}
-
+	get_copiloto()->pedir_aterrizaje();
  }
+
+cCopiloto* cAvion::get_copiloto(){
+	for(int i=0; i<empleados->getCA(); i++){
+		if(dynamic_cast<cCopiloto*>(empleados->getItem(i))!= NULL)
+			return dynamic_cast<cCopiloto*>(empleados->getItem(i));
+	}
+	return NULL;
+}
 
  cAzafata* cAvion::azafata_random(){
 	 cAzafata *a;
@@ -61,7 +69,7 @@ void cAvion::volar(){
  	}while(1);
 
  	return a;
-    }
+}
 
 cPasajero* cAvion::pasajero_random(){
 	int num = pasajeros->getCA() + 1;
@@ -100,8 +108,8 @@ cMarshall* cAvion::get_marshall(){
 void cAvion::tick(int p){
 
 	if (p == PASAJERO) {
-		int r = rand() % 5;
-		cPasajero* p = cAvion::pasajero_random();
+		int r = rand() % 6;
+		cPasajero* p = pasajero_random();
 		switch (r)
 		{
 		case 0:
@@ -111,16 +119,37 @@ void cAvion::tick(int p){
 			p->dormir();
 			break;
 		case 2:
-			p->descompensarse(cAvion::azafata_random());
+			p->descompensarse(azafata_random());
 			break;
 		case 3:
-			p->encerrado();
+			p->pedircomida(azafata_random());
 			break;
 		case 4:
-			p->causar_problemas(cAvion::get_marshall());
+			p->causar_problemas(get_marshall());
+			break;
+		case 5:
+			p->pedirbebida(azafata_random());
 			break;
 		}
-
+		if(dynamic_cast<cTurista*>(p)!=NULL){
+			cTurista *t=dynamic_cast<cTurista*>(p);
+			if(r>=3)
+				t->ver_pelicula();
+			else if(r<3)
+				t->escuchar_musica();
+		}
+		if(dynamic_cast<cEjecutivo*>(p)!=NULL){
+			cEjecutivo *e=dynamic_cast<cEjecutivo*>(p);
+			e->trabajar_notebook();
+		
+		}
+		if(dynamic_cast<cPrimera*>(p)!=NULL){
+			cPrimera *f=dynamic_cast<cPrimera*>(p);
+			if(r>=3)
+				f->hacer_masajes();
+			else if(r<3)
+				f->pedir_champagne(azafata_random());
+		}
 	}
 
 	else if(p==PILOTO){
@@ -148,7 +177,6 @@ void cAvion::tick(int p){
 			break;
 			
 		}
-
 
 	}
 }

@@ -2,8 +2,9 @@
 #include "cAvion.h"
 #include "cPersona.h"
 #include "cPiloto.h"
-cCopiloto::cCopiloto():cPiloto()
+cCopiloto::cCopiloto(string dni, string nya):cPiloto(dni, nya)
 {
+
 }
 
 cCopiloto::~cCopiloto()

@@ -1,7 +1,7 @@
 #include "cAzafata.h"
 #include "cAvion.h"
 
-cAzafata::cAzafata()
+cAzafata::cAzafata(string dni, string nya):cPersona(dni, nya)
 {
     ocupada=rand()%2;
 }

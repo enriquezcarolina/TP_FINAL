@@ -11,7 +11,7 @@ class cPiloto:public cPersona
 protected:
 
 public:
-	cPiloto();
+	cPiloto(string dni, string nya);
 	virtual ~cPiloto();
     void pilotear();
     void anuncio_altavoz();

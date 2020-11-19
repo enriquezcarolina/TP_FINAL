@@ -9,7 +9,6 @@ cPasajero::cPasajero(string codigo)
 
 cPasajero::cPasajero(string dni, string nya): cPersona(dni, nya)
 {
-	
 }
 
 cPasajero::~cPasajero(){
@@ -67,7 +66,7 @@ void cPasajero::encerrado(){
 	cAvion::registrar("fue encerrado por el marshall", this);
 }
 
- void cPasajero::set_Fila_Asiento(int fila, char asiento){
+void cPasajero::set_Fila_Asiento(int fila, char asiento){
 	 if(fila<10){
 		 codigo+="0"; //para que quede 01, 02, .... 09, 10, 11
 	 }

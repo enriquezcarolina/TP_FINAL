@@ -16,7 +16,7 @@ private:
   static Logger registros;
 
 public:
-  cAvion(cListaT<cPersona>* empleados, cListaT <cPersona>* pasajeros);
+  cAvion(cListaT<cPersona>* empleados);
   ~cAvion();
   void AgregarPasajero(cPersona* pasajero);
   void volar();

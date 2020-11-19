@@ -3,7 +3,7 @@
 #define CANT_EVENTOS 20
 
 Logger cAvion::registros = NULL;
-cAvion::cAvion(cListaT<cPersona>* empleados, cListaT <cPersona>* pasajeros)
+cAvion::cAvion(cListaT<cPersona>* empleados)
 {
 	this-> pasajeros = new cListaT<cPersona>();
 	this-> empleados = new cListaT<cPersona>();

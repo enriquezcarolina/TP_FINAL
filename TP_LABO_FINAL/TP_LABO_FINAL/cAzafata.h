@@ -12,7 +12,7 @@ protected:
     static int cantidad_azafatas;
     bool ocupada; //ocupada o no
 public:
-	cAzafata();
+	cAzafata(string dni, string nya);
     ~cAzafata();
     bool get_ocupada();
     void llevadoporavion();

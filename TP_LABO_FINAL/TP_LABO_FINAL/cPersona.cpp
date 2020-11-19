@@ -2,7 +2,6 @@
 
 cPersona::cPersona(string DNI, string NYA): DNI(DNI)
 {
-
 	this->NYA = NYA;
 
 }

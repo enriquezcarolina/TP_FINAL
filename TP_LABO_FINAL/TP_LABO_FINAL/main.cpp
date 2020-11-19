@@ -15,13 +15,16 @@
 #include "Logger.h"
 using namespace std;
 
-#define CANT_CODIGOS 10
-#define CANT_FILAS 10
+#define CANT_CODIGOS 5
+#define CANT_FILAS 5
 #define CANT_ASIENTOS 'J'
+#define CANT_PASAJEROS 10
+#define CANT_TRIPULANTES 6
 
 ostream& operator<<(ostream& out, const Log& log);
 string generarcodigo(cPersona* p);
 void generarTripulantes(cListaT<cPersona> *t);
+void generarPasajeros(cListaT<cPasajero> *p);
 //verifica si el codigo del pasajero esta en la lista
 bool VerificarCodigos(string *C, cPasajero *p);
 
@@ -45,12 +48,14 @@ int main()
 */
 
 	string codigos[CANT_CODIGOS];
-	cListaT<cPasajero> *pasajeros = new cListaT<cPasajero>(); //solo pasajeros, crear aparte un marshall
+	cListaT<cPasajero>* pasajeros = new cListaT<cPasajero>(CANT_PASAJEROS); //solo pasajeros, crear aparte un marshall
 	cMarshall* marshall= new cMarshall();
-	cListaT<cPersona> *tripulantes= new cListaT<cPersona>();
-	cListaT<cPersona>* p = new cListaT<cPersona>();
-	cAvion *Avion = new cAvion(tripulantes, p);
+	cListaT<cPersona>* tripulantes= new cListaT<cPersona>(CANT_TRIPULANTES);
+	cAvion *Avion = new cAvion(tripulantes);
 	Avion->AgregarPasajero(marshall);
+
+	generarPasajeros(pasajeros);
+	generarTripulantes(tripulantes);
 
 	int fila = 1;
 	char asiento = 'B'; //el marshall por defecto tiene el primer asiento
@@ -67,7 +72,11 @@ int main()
 	    asiento++;
 	}
 
-	//FALTA CARGAR LOS CODIGOS DE LOS PASAJEROS A LA LISTA DE CODIGOS
+	//Cargo solo los primeros pasajeros de la lista
+	for(int i=0; i<CANT_CODIGOS; i++){
+		codigos[i]=pasajeros->getItem(i)->get_codigo();
+	}
+	
 
 	for(int i=0; i<pasajeros->getCA(); i++){
 		if(VerificarCodigos(codigos, pasajeros->getItem(i))) 
@@ -79,7 +88,7 @@ int main()
 
 	Avion->imprimir_eventos();
 
-//	delete personas, a, p, aero;
+	// delete Avion;
 	return 0;
 }
 
@@ -95,12 +104,50 @@ bool VerificarCodigos(string *C, cPasajero *p){
 	return false;
 }
 
-/* 
+void generarPasajeros(cListaT<cPasajero> *p){
+	
+	cPasajero* Maria = new cPasajero("20345764", "Maria Perez");
+	cPasajero* Julian = new cPasajero("27394827", "Julian Rodriguez");
+	cPasajero* Facundo = new cPasajero("38765874", "Facundo Rodriguez");
+	cPasajero* Isabella = new cPasajero("43786900", "Isabella Aguirre");
+	cPasajero* Cecilia = new cPasajero("39882012", "Cecilia Sanchez");
+	cPasajero* Mateo = new cPasajero("34876264", "Mateo Perez");
+	cPasajero* Sofia = new cPasajero("23764892", "Sofia Lopez");
+	cPasajero* Caterina = new cPasajero("42721946", "Caterina Galafassi");
+	cPasajero* Milo = new cPasajero("45836726", "Milo Araujo");
+	cPasajero* Analia = new cPasajero("32765829", "Analia Martin");
+	
+	p->AgregarItem(Maria);
+	p->AgregarItem(Julian);
+	p->AgregarItem(Facundo);
+	p->AgregarItem(Isabella);
+	p->AgregarItem(Cecilia);
+	p->AgregarItem(Mateo);
+	p->AgregarItem(Sofia);
+	p->AgregarItem(Caterina);
+	p->AgregarItem(Milo);
+	p->AgregarItem(Analia);
 
- CODIGO UNICO (Contiene 13 dígitos): 
-	- 2 caracteres que indican el sector (TU es turista, BS es ejecutiva, y PC es primera clase) 
-	- 8 dígitos con el DNI del pasajero
-	- 2 indicando fila (01-99) 
-	- 1 letra (A-J) indicando el asiento de la fila
+	return;
+}
 
-*/
+void generarTripulantes(cListaT<cPersona> *t){
+
+	cPersona* Juliana = new cAzafata("22873664", "Juliana Gomez");
+	cPersona* Martin = new cAzafata("25678636", "Martin Flores");
+	cPersona* Paula = new cAzafata("32554367", "Paula Hernandez");
+	cPersona* Juan = new cAzafata("37875764", "Juan Suarez");
+
+	cPersona* Carmen = new cPiloto("30986846", "Carmen Sanchez");
+	cPersona* Emilia = new cCopiloto("35764665", "Emilia Martinez");
+
+	t->AgregarItem(Juliana);
+	t->AgregarItem(Martin);
+	t->AgregarItem(Paula);
+	t->AgregarItem(Juan);
+
+	t->AgregarItem(Carmen);
+	t->AgregarItem(Emilia);
+
+	return;
+}

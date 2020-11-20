@@ -5,12 +5,12 @@
 #include <string>
 using namespace std;
 
-#define MAX 20
+#define MAX_EVENTOS 30
 
 class Logger : protected cListaT<Log>
 {
 public:
-	Logger(int Nmax = MAX);
+	Logger(int Nmax = MAX_EVENTOS);
 	virtual ~Logger() {
 	}
 
@@ -19,7 +19,12 @@ public:
 	}
 
 	void Registrar(string descripcion, cPersona* p) {
+        try{
 		AgregarItem(new Log(descripcion,p));
+        }
+        catch(...){
+            return;
+        }
 	}
 
 	void Listar() {
@@ -28,5 +33,4 @@ public:
 	}
 
 };
-
 

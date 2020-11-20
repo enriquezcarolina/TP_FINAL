@@ -21,3 +21,4 @@ public:
 	string get_NYA(){return NYA;}
 };
 
+

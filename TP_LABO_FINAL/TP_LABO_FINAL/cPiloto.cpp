@@ -1,7 +1,7 @@
 #include "cPiloto.h"
 #include "cAvion.h"
 
-cPiloto::cPiloto(string dni, string nya):cPersona(string dni, string nya)
+cPiloto::cPiloto(string dni, string nya):cPersona( dni, nya)
 {
 }
 

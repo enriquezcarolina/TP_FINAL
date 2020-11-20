@@ -19,8 +19,9 @@ class Log
 public:
 	Log(string descripcion, cPersona*p);
 	string to_string();
-	string getclave() {return persona->get_NYA();}
-	friend ostream& operator<<(ostream& out, const Log& log);
+    string getclave() {return persona->get_NYA()+" "+descripcion;}
+	friend ostream& operator<<(ostream& out, const Log* log);
 };
+
 
 

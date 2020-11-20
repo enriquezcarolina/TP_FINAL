@@ -9,6 +9,7 @@ cPasajero::cPasajero(string codigo)
 
 cPasajero::cPasajero(string dni, string nya): cPersona(dni, nya)
 {
+    
 }
 
 cPasajero::~cPasajero(){

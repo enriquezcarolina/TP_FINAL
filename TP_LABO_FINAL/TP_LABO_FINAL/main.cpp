@@ -18,10 +18,9 @@ using namespace std;
 #define CANT_CODIGOS 5
 #define CANT_FILAS 5
 #define CANT_ASIENTOS 'J'
-#define CANT_PASAJEROS 10
-#define CANT_TRIPULANTES 6
 
-ostream& operator<<(ostream& out, const Log& log);
+
+ostream& operator<<(ostream& out, const Log* log);
 string generarcodigo(cPersona* p);
 void generarTripulantes(cListaT<cPersona> *t);
 void generarPasajeros(cListaT<cPasajero> *p);
@@ -51,11 +50,13 @@ int main()
 	cListaT<cPasajero>* pasajeros = new cListaT<cPasajero>(CANT_PASAJEROS); //solo pasajeros, crear aparte un marshall
 	cMarshall* marshall= new cMarshall();
 	cListaT<cPersona>* tripulantes= new cListaT<cPersona>(CANT_TRIPULANTES);
+    
+    generarTripulantes(tripulantes);
 	cAvion *Avion = new cAvion(tripulantes);
 	Avion->AgregarPasajero(marshall);
 
 	generarPasajeros(pasajeros);
-	generarTripulantes(tripulantes);
+	
 
 	int fila = 1;
 	char asiento = 'B'; //el marshall por defecto tiene el primer asiento
@@ -87,13 +88,14 @@ int main()
 	Avion->volar();
 
 	Avion->imprimir_eventos();
+    
 
 	// delete Avion;
 	return 0;
 }
 
-ostream& operator<<(ostream& out, const Log& log){
-	return out<<log.persona->get_NYA()<<" "<<log.descripcion;
+ostream& operator<<(ostream& out, const Log* log){
+	return out<<log->persona->get_NYA()<<" "<<log->descripcion;
 }
 
 bool VerificarCodigos(string *C, cPasajero *p){
@@ -106,16 +108,16 @@ bool VerificarCodigos(string *C, cPasajero *p){
 
 void generarPasajeros(cListaT<cPasajero> *p){
 	
-	cPasajero* Maria = new cPasajero("20345764", "Maria Perez");
-	cPasajero* Julian = new cPasajero("27394827", "Julian Rodriguez");
-	cPasajero* Facundo = new cPasajero("38765874", "Facundo Rodriguez");
-	cPasajero* Isabella = new cPasajero("43786900", "Isabella Aguirre");
-	cPasajero* Cecilia = new cPasajero("39882012", "Cecilia Sanchez");
-	cPasajero* Mateo = new cPasajero("34876264", "Mateo Perez");
-	cPasajero* Sofia = new cPasajero("23764892", "Sofia Lopez");
-	cPasajero* Caterina = new cPasajero("42721946", "Caterina Galafassi");
-	cPasajero* Milo = new cPasajero("45836726", "Milo Araujo");
-	cPasajero* Analia = new cPasajero("32765829", "Analia Martin");
+	cPasajero* Maria = new cTurista("20345764", "Maria Perez");
+	cPasajero* Julian = new cPrimera("27394827", "Julian Rodriguez");
+	cPasajero* Facundo = new cEjecutivo("38765874", "Facundo Rodriguez");
+	cPasajero* Isabella = new cEjecutivo("43786900", "Isabella Aguirre");
+	cPasajero* Cecilia = new cTurista("39882012", "Cecilia Sanchez");
+	cPasajero* Mateo = new cTurista("34876264", "Mateo Perez");
+	cPasajero* Sofia = new cTurista("23764892", "Sofia Lopez");
+	cPasajero* Caterina = new cEjecutivo("42721946", "Caterina Galafassi");
+	cPasajero* Milo = new cPrimera("45836726", "Milo Araujo");
+	cPasajero* Analia = new cTurista("32765829", "Analia Martin");
 	
 	p->AgregarItem(Maria);
 	p->AgregarItem(Julian);

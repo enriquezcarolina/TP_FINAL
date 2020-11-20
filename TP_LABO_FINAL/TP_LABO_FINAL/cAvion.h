@@ -4,7 +4,8 @@
 #include "Logger.h"
 #include "cPiloto.h"
 #include "Log.h"
-
+#define CANT_PASAJEROS 10
+#define CANT_TRIPULANTES 6
 
 enum{PASAJERO, PILOTO};
 
@@ -16,7 +17,7 @@ private:
   static Logger registros;
 
 public:
-  cAvion(cListaT<cPersona>* empleados);
+  cAvion(cListaT<cPersona>* Empleados);
   ~cAvion();
   void AgregarPasajero(cPersona* pasajero);
   void volar();

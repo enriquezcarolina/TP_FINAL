@@ -1,16 +1,14 @@
 #include "cAvion.h"
 
-#define CANT_EVENTOS 20
-
-Logger cAvion::registros = NULL;
-cAvion::cAvion(cListaT<cPersona>* empleados)
+Logger cAvion::registros;
+cAvion::cAvion(cListaT<cPersona>* Empleados)
 {
-	this-> pasajeros = new cListaT<cPersona>();
-	this-> empleados = new cListaT<cPersona>();
+	this-> pasajeros = new cListaT<cPersona>(CANT_PASAJEROS+1);
+	this-> empleados = new cListaT<cPersona>(CANT_TRIPULANTES);
 
-	for (unsigned int i = 0; i<empleados->getCA(); i++)
+	for (unsigned int i = 0; i<Empleados->getCA(); i++)
 	{
-		this->empleados->AgregarItem(empleados->getItem(i));
+		empleados->AgregarItem(Empleados->getItem(i));
 	}
 
 }
@@ -40,7 +38,7 @@ void cAvion::registrar(string descripcion, cPersona* p){
 
 void cAvion::volar(){
 	get_copiloto()->pedir_despegue();
-	for (int i=0; i<CANT_EVENTOS; i++){
+	for (int i=0; i<MAX_EVENTOS; i++){
 		tick(rand()%2);//dependiendo si es 0 o 1 un piloto random hace una actividad o un pasajero random hace una actividad
 		// los eventos de azafata y marshall dependen de los de los pasajeros y los pilotos
 	}
@@ -77,7 +75,7 @@ cPasajero* cAvion::pasajero_random(){
 	int pos=0;
  	do{
 		pos = rand() % num;
- 	}while(dynamic_cast<cPasajero*>(pasajeros->getItem(pos)) != NULL); //chequear que el pasajero no es un marshall
+ 	}while(dynamic_cast<cPasajero*>(pasajeros->getItem(pos)) == NULL); //chequear que el pasajero no es un marshall
 	// si hago el marshall herencia de pasajero puedo hacer un dynamic cast 
  	p= dynamic_cast<cPasajero*>(pasajeros->getItem(pos));
 	return p;
@@ -96,13 +94,14 @@ cPiloto* cAvion::piloto_random(){
 
 
 cMarshall* cAvion::get_marshall(){
-	cMarshall* m;
+    cMarshall* m = new cMarshall();
  	for(int i=0; i<pasajeros->getCA(); i++){
  			if(dynamic_cast<cMarshall*>(pasajeros->getItem(i))!=NULL){
 				m = dynamic_cast<cMarshall*>(pasajeros->getItem(i));
 				return m;
  			}
  		}
+    return m;
  }
 
 void cAvion::tick(int p){

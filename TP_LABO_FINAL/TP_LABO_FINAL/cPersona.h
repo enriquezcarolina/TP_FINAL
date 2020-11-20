@@ -4,6 +4,8 @@
 using namespace std;
 
 
+enum eComida { NADA, POLLO, PESCADO, VEGGIE, SUSHI, CAVIAR };
+enum eBebida { NINGUNA, AGUA, GASEOSA, VINO, CHAMPAGNE };
 class cPersona
 {
 protected:
@@ -17,6 +19,8 @@ public:
 	void imprimir();
 	string getclave();
 	virtual string tostring()=0;
+	eComida comida_random();
+	eBebida bebida_random();
 
 	string get_NYA(){return NYA;}
 };

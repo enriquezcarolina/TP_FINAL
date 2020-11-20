@@ -7,8 +7,6 @@
 class cAzafata;
 using namespace std;
 
-enum eComida{POLLO, PESCADO, VEGGIE, SUSHI, CAVIAR};
-enum eBebida { AGUA, GASEOSA, VINO, CHAMPAGNE};
 
 /* 
 
@@ -24,6 +22,7 @@ class cPasajero:public cPersona
 {
 protected:
 	string codigo;
+    bool en_viaje;
 
 public:
     cPasajero(string codigo);
@@ -31,8 +30,8 @@ public:
     
 	virtual ~cPasajero();
     void llevadoporavion();
-    void pedirbebida(cAzafata* A);
-    void pedircomida(cAzafata* A);
+    void pedirbebida(cAzafata* A, eBebida bebida);
+    void pedircomida(cAzafata* A, eComida comida);
     void ir_banio();
     void volver_asiento();
     void dormir();
@@ -43,5 +42,5 @@ public:
     virtual string tostring();
     void set_Fila_Asiento(int fila, char asiento);
     string get_codigo();
-
+    
 };

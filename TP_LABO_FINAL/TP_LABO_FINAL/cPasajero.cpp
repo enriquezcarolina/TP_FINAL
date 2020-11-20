@@ -4,12 +4,12 @@
 cPasajero::cPasajero(string codigo)
 {
 	this->codigo = codigo;
-
+	
 }
 
 cPasajero::cPasajero(string dni, string nya): cPersona(dni, nya)
 {
-    
+	en_viaje = false;
 }
 
 cPasajero::~cPasajero(){
@@ -18,6 +18,7 @@ cPasajero::~cPasajero(){
 
 void cPasajero::llevadoporavion()
 {
+	en_viaje = true;
 }
 
 string cPasajero::tostring(){
@@ -26,14 +27,14 @@ string cPasajero::tostring(){
 
 }
 
-void cPasajero::pedirbebida(cAzafata* A){
+void cPasajero::pedirbebida(cAzafata* A, eBebida bebida){
 	cAvion::registrar("pidio una bebida", this);
-	A->entregar_bebida(this);
+	A->entregar_bebida(this, bebida);
 }
 
-void cPasajero::pedircomida(cAzafata* A){
+void cPasajero::pedircomida(cAzafata* A, eComida comida){
 	cAvion::registrar("pidio comida", this);
-	A->entregar_comida(this);
+	A->entregar_comida(this, comida);
 }
 
 void cPasajero::ir_banio(){

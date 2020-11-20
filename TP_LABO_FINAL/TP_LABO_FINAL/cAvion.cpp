@@ -121,13 +121,13 @@ void cAvion::tick(int p){
 			p->descompensarse(azafata_random());
 			break;
 		case 3:
-			p->pedircomida(azafata_random());
+			p->pedircomida(azafata_random(),p->comida_random());
 			break;
 		case 4:
 			p->causar_problemas(get_marshall());
 			break;
 		case 5:
-			p->pedirbebida(azafata_random());
+			p->pedirbebida(azafata_random(), p->bebida_random());
 			break;
 		}
 		if(dynamic_cast<cTurista*>(p)!=NULL){
@@ -160,10 +160,10 @@ void cAvion::tick(int p){
 			piloto->anuncio_altavoz();
 			break;
 		case 1:
-			piloto->pedirbebida(cAvion::azafata_random());
+			piloto->pedirbebida(cAvion::azafata_random(),piloto->bebida_random());
 			break;
 		case 2:
-			piloto->pedircomida(cAvion::azafata_random());
+			piloto->pedircomida(cAvion::azafata_random(), piloto->comida_random());
 			break;
 		case 3:
 			piloto->pedir_azafata_hable_altavoz(cAvion::azafata_random());

@@ -140,8 +140,8 @@ void generarTripulantes(cListaT<cPersona> *t){
 	cPersona* Paula = new cAzafata("32554367", "Paula Hernandez");
 	cPersona* Juan = new cAzafata("37875764", "Juan Suarez");
 
-	cPersona* Carmen = new cPiloto("30986846", "Carmen Sanchez");
-	cPersona* Emilia = new cCopiloto("35764665", "Emilia Martinez");
+	cPersona* Carmen = new cPiloto("30986846", "Carmen Sanchez", false);
+	cPersona* Emilia = new cCopiloto("35764665", "Emilia Martinez", false);
 
 	t->AgregarItem(Juliana);
 	t->AgregarItem(Martin);
